@@ -1,0 +1,19 @@
+{
+  "description": "Repeated, sequence-disjoint DIA-NN RT data-scaling experiment; configuration locked after the random sweep.",
+  "fractions": [0.1, 0.25, 0.5, 0.75, 1.0],
+  "repeats": 10,
+  "validation_fraction": 0.1,
+  "defaults": {
+    "trainable": "all",
+    "epochs": 40,
+    "warmup_epochs": 5,
+    "batch_size": 512,
+    "learning_rate": 0.000113155,
+    "weight_decay": 0.0,
+    "loss": "huber",
+    "huber_delta": 0.03,
+    "heavy_nterm_weight": 1.0,
+    "heavy_lysine_weight": 1.0,
+    "heavy_both_weight": 1.0
+  }
+}

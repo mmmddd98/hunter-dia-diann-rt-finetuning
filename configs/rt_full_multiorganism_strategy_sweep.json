@@ -1,0 +1,25 @@
+{
+  "name": "diann-rt-full-multiorganism-strategy-v1",
+  "method": "bayes",
+  "metric": {
+    "name": "final/rt/validation_composite_mae",
+    "goal": "minimize"
+  },
+  "parameters": {
+    "loss": {"values": ["mae", "huber", "mse"]},
+    "huber-delta": {"distribution": "log_uniform_values", "min": 0.01, "max": 0.08},
+    "trainable": {"values": ["head", "cnn_head", "gru_head", "all", "discriminative"]},
+    "learning-rate": {"distribution": "log_uniform_values", "min": 0.00002, "max": 0.0008},
+    "backbone-lr-ratio": {"distribution": "log_uniform_values", "min": 0.03, "max": 0.5},
+    "weight-decay": {"values": [0.0, 0.000001, 0.00001, 0.0001]},
+    "heavy-nterm-weight": {"distribution": "log_uniform_values", "min": 0.5, "max": 8.0},
+    "heavy-lysine-weight": {"distribution": "log_uniform_values", "min": 0.5, "max": 4.0},
+    "heavy-both-weight": {"distribution": "log_uniform_values", "min": 0.5, "max": 8.0},
+    "heavy-nterm-oversample": {"value": 1.0},
+    "heavy-lysine-oversample": {"value": 1.0},
+    "heavy-both-oversample": {"value": 1.0},
+    "batch-size": {"value": 512},
+    "epochs": {"value": 60},
+    "warmup-epochs": {"value": 10}
+  }
+}

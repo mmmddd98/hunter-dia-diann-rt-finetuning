@@ -1,0 +1,13 @@
+{
+  "name": "diann-rt-controlled-heavy-weights",
+  "method": "grid",
+  "metric": {
+    "name": "final/rt/mean_seed_heavy_dimethyl_mae",
+    "goal": "minimize"
+  },
+  "parameters": {
+    "configuration": {
+      "values": ["control_111", "heavy_621", "moderate_422", "moderate_421"]
+    }
+  }
+}

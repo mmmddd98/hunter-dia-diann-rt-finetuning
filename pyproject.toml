@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diann-finetune"
+version = "0.1.0"
+description = "Fine-tune DIA-NN TorchScript models using Carafe2 training data"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "torch>=2.3",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7.4"]
+tracking = ["wandb>=0.17,<1"]
+evaluation = ["captum>=0.7", "pyarrow>=12", "PyYAML>=6", "scipy>=1.10", "scikit-learn>=1.3", "tqdm>=4.65"]
+
+[project.scripts]
+diann-finetune-carafe-rt = "train_carafe_rt:main"
+diann-rt-data-scaling = "run_rt_data_scaling:main"
+diann-finetune-rt-campaign = "run_rt_campaign:main"
+diann-upload-runs-wandb = "upload_runs_to_wandb:main"
+diann-rt-wandb-sweep = "run_wandb_sweep:main"
+diann-analyze-rt-sweep = "analyze_rt_sweep:main"
+
+[tool.setuptools]
+py-modules = ["analyze_rt_sweep", "train_carafe_rt", "run_rt_campaign", "run_rt_data_scaling", "run_wandb_sweep", "upload_runs_to_wandb", "run_rt_learning_curve", "run_targeted_wandb_sweep", "analyze_heavy_rt_sweep_study", "evaluate_organism_tests", "plot_rt_data_scaling_paper"]
+
+[tool.setuptools.packages.find]
+include = ["diann_finetune*", "captum_attribution*"]
+
+[tool.setuptools.package-data]
+captum_attribution = ["configs/*.yaml", "environment/*.yml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

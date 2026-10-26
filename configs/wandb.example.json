@@ -1,0 +1,11 @@
+{
+  "project": "diann-rt-finetune",
+  "entity": null,
+  "mode": "online",
+  "job_type": "rt-finetune",
+  "tags": ["diann", "rt", "carafe2", "unimod510"],
+  "notes": "DIA-NN RT fine-tuning on Carafe2 data with explicit heavy dimethyl UniMod 510 tokens",
+  "log_artifacts": false,
+  "log_models": false,
+  "log_media": false
+}

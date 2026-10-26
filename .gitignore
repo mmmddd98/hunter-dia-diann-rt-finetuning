@@ -1,0 +1,35 @@
+# Local environments, credentials and generated files
+.venv*/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+build/
+dist/
+*.egg-info/
+
+# External DIA-NN installations and model checkpoints
+DIA-NN-2-3/
+models/
+diann/
+*.pt
+*.pth
+*.nnkb
+
+# Runtime data and reports
+outputs/
+finetune_output/
+wandb/
+rt_model_evaluations/
+configs/wandb.json
+inputs/
+*.raw
+*.RAW
+*.mzML
+*.mzml
+*.log

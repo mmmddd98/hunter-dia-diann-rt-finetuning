@@ -1,0 +1,47 @@
+# Copy this file and change the paired model/dictionary plus test table paths.
+evaluation_name: example_v1
+model:
+  name: diann_rt_d0
+  path: /absolute/path/to/rt.d0.pt
+  token_dictionary: /absolute/path/to/dict.txt
+  model_type: rt
+dataset:
+  name: carafe_test
+  path: /absolute/path/to/rt_test_data.tsv
+  sequence_column: sequence
+  observed_rt_column: rt_norm
+  # Set this for existing DIA-NN-ready columns such as diann_sequence.
+  predictor_sequence_column: diann_sequence
+  peptide_id_column: peptide_id
+  charge_column: charge
+  default_charge: 2
+  modified_sequence_column: diann_sequence
+  semi_specific_column: semi_specific
+  organism_column: organism
+  metadata_columns: [source_organism, organism, semi_specific, mods, mod_sites]
+  # Optional parity gate: a known established DIA-NN prediction column in this
+  # table must agree before attribution results are accepted.
+  # reference_prediction_column: rt_pred_diann
+  # reference_prediction_tolerance: 1.0e-5
+  # Alternatively remove predictor_sequence_column and provide these two
+  # Carafe columns to translate chemical annotations to DIA-NN notation:
+  # mods_column: mods
+  # mod_sites_column: mod_sites
+output:
+  root: /absolute/path/to/evaluation_outputs
+runtime:
+  device: auto
+  # For one large run, distribute peptides across the listed GPU model copies:
+  # devices: [cuda:0, cuda:1, cuda:2]
+  batch_size: 64
+captum:
+  # Token 0 is explicitly recorded in manifest.yaml. boundary_only retains
+  # precursor charge and <...> boundary tokens, setting interior tokens to 0.
+  baseline: boundary_only
+  n_steps: 64
+  # Peptides are batched only with identical token length; this preserves the
+  # native no-padding DIA-NN representation. Reduce after a CUDA OOM.
+  peptide_batch_size: 32
+  # Number of (peptide × IG interpolation) examples evaluated per GPU call.
+  internal_batch_size: 256
+  checkpoint_every: 100

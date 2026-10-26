@@ -1,0 +1,66 @@
+{
+  "name": "diann-rt-loss-and-weight-sweep",
+  "method": "random",
+  "metric": {
+    "name": "validation/mae",
+    "goal": "minimize"
+  },
+  "early_terminate": {
+    "type": "hyperband",
+    "min_iter": 10,
+    "eta": 3
+  },
+  "parameters": {
+    "loss": {
+      "values": ["mae", "huber", "mse"]
+    },
+    "huber-delta": {
+      "values": [0.02, 0.03, 0.05]
+    },
+    "trainable": {
+      "values": ["embeddings", "head", "rt_head", "cnn_head", "gru_head", "discriminative", "all"]
+    },
+    "learning-rate": {
+      "distribution": "log_uniform_values",
+      "min": 0.00001,
+      "max": 0.0002
+    },
+    "backbone-learning-rate": {
+      "values": [0.000005, 0.00001, 0.00002]
+    },
+    "embedding-learning-rate": {
+      "values": [0.00005, 0.0001, 0.0002]
+    },
+    "weight-decay": {
+      "values": [0.0, 0.00001]
+    },
+    "batch-size": {
+      "values": [512, 1024]
+    },
+    "warmup-epochs": {
+      "values": [5, 10]
+    },
+    "heavy-nterm-weight": {
+      "values": [1.0, 1.5, 2.0]
+    },
+    "heavy-lysine-weight": {
+      "values": [1.0, 1.25]
+    },
+    "heavy-both-weight": {
+      "values": [1.0, 2.0, 3.0]
+    },
+    "epochs": {
+      "value": 40
+    },
+    "seed": {
+      "value": 2024
+    }
+  },
+  "program": "scripts/run_wandb_sweep_trial.sh",
+  "command": [
+    "${env}",
+    "bash",
+    "${program}",
+    "${args}"
+  ]
+}

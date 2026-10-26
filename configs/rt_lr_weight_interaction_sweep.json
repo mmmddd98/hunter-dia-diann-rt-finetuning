@@ -1,0 +1,13 @@
+{
+  "name": "diann-rt-lr-heavy-weight-interaction",
+  "method": "grid",
+  "metric": {
+    "name": "final/rt/mean_seed_heavy_dimethyl_mae",
+    "goal": "minimize"
+  },
+  "parameters": {
+    "configuration": {
+      "values": ["lr11_control", "lr20_control", "lr28_control", "lr11_heavy", "lr20_heavy", "lr28_heavy"]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "diann-rt-heavy-oversampling-multiseed",
+  "method": "random",
+  "metric": {
+    "name": "final/rt/mean_seed_heavy_dimethyl_mae",
+    "goal": "minimize"
+  },
+  "parameters": {
+    "heavy-nterm-oversample": {"values": [1.0, 1.5, 2.0, 3.0, 4.0]},
+    "heavy-lysine-oversample": {"values": [1.0, 1.25, 1.5, 2.0]},
+    "heavy-both-oversample": {"values": [1.0, 2.0, 3.0, 4.0]},
+    "loss": {"values": ["mae", "huber", "mse"]},
+    "huber-delta": {"values": [0.02, 0.03, 0.05]},
+    "learning-rate": {
+      "distribution": "log_uniform_values",
+      "min": 0.00003,
+      "max": 0.0003
+    },
+    "batch-size": {"values": [512, 1024, 2048]},
+    "epochs": {"values": [30, 40, 60]},
+    "warmup-epochs": {"values": [5, 10]},
+    "trainable": {"value": "all"},
+    "heavy-nterm-weight": {"value": 1.0},
+    "heavy-lysine-weight": {"value": 1.0},
+    "heavy-both-weight": {"value": 1.0}
+  }
+}

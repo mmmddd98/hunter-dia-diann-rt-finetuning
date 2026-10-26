@@ -1,0 +1,21 @@
+name: diann-captum-eval
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - pytorch>=2.3
+  - pytorch-cuda=12.4
+  - numpy>=1.26
+  - pandas>=2.1
+  - scipy
+  - scikit-learn
+  - matplotlib>=3.8
+  - pyarrow
+  - pyyaml
+  - tqdm
+  - pip
+  - pip:
+      - captum>=0.7

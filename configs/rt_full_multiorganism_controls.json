@@ -1,0 +1,38 @@
+{
+  "unweighted_full_mae": {
+    "loss": "mae", "huber-delta": 0.03, "trainable": "all",
+    "learning-rate": 0.000280195788, "backbone-lr-ratio": 0.1,
+    "weight-decay": 0.0, "heavy-nterm-weight": 1.0,
+    "heavy-lysine-weight": 1.0, "heavy-both-weight": 1.0,
+    "heavy-nterm-oversample": 1.0, "heavy-lysine-oversample": 1.0,
+    "heavy-both-oversample": 1.0, "batch-size": 512, "epochs": 60,
+    "warmup-epochs": 10
+  },
+  "previous_weighted_full_mae": {
+    "loss": "mae", "huber-delta": 0.03, "trainable": "all",
+    "learning-rate": 0.000280195788, "backbone-lr-ratio": 0.1,
+    "weight-decay": 0.0, "heavy-nterm-weight": 6.0,
+    "heavy-lysine-weight": 2.0, "heavy-both-weight": 1.0,
+    "heavy-nterm-oversample": 1.0, "heavy-lysine-oversample": 1.0,
+    "heavy-both-oversample": 1.0, "batch-size": 512, "epochs": 60,
+    "warmup-epochs": 10
+  },
+  "unweighted_full_huber": {
+    "loss": "huber", "huber-delta": 0.03, "trainable": "all",
+    "learning-rate": 0.000280195788, "backbone-lr-ratio": 0.1,
+    "weight-decay": 0.0, "heavy-nterm-weight": 1.0,
+    "heavy-lysine-weight": 1.0, "heavy-both-weight": 1.0,
+    "heavy-nterm-oversample": 1.0, "heavy-lysine-oversample": 1.0,
+    "heavy-both-oversample": 1.0, "batch-size": 512, "epochs": 60,
+    "warmup-epochs": 10
+  },
+  "weighted_discriminative_mae": {
+    "loss": "mae", "huber-delta": 0.03, "trainable": "discriminative",
+    "learning-rate": 0.000280195788, "backbone-lr-ratio": 0.1,
+    "weight-decay": 0.00001, "heavy-nterm-weight": 6.0,
+    "heavy-lysine-weight": 2.0, "heavy-both-weight": 1.0,
+    "heavy-nterm-oversample": 1.0, "heavy-lysine-oversample": 1.0,
+    "heavy-both-oversample": 1.0, "batch-size": 512, "epochs": 60,
+    "warmup-epochs": 10
+  }
+}

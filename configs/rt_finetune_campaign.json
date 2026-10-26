@@ -1,0 +1,43 @@
+{
+  "description": "Independent DIA-NN RT fine-tuning strategies on one Carafe2 split",
+  "defaults": {
+    "batch_size": 1024,
+    "seed": 2024,
+    "weight_decay": 0.0
+  },
+  "experiments": [
+    {
+      "name": "01_heavy_tokens_and_output",
+      "description": "Teach UniMod 510 embeddings and recalibrate only the final output layer",
+      "trainable": "head",
+      "epochs": 30,
+      "warmup_epochs": 5,
+      "learning_rate": 0.0001
+    },
+    {
+      "name": "02_full_conservative",
+      "description": "Fine-tune every parameter with a conservative learning rate",
+      "trainable": "all",
+      "epochs": 40,
+      "warmup_epochs": 5,
+      "learning_rate": 0.00001
+    },
+    {
+      "name": "03_discriminative",
+      "description": "Low LR for CNN/GRU, high LR for RT head and custom UniMod 510 embeddings",
+      "trainable": "discriminative",
+      "epochs": 40,
+      "warmup_epochs": 5,
+      "learning_rate": 0.0001,
+      "backbone_learning_rate": 0.00001
+    },
+    {
+      "name": "04_full_carafe_baseline",
+      "description": "Carafe-like full-model baseline for comparison",
+      "trainable": "all",
+      "epochs": 40,
+      "warmup_epochs": 10,
+      "learning_rate": 0.0001
+    }
+  ]
+}

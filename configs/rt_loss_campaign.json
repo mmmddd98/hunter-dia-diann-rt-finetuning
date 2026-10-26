@@ -1,0 +1,46 @@
+{
+  "description": "Controlled DIA-NN RT loss and heavy-dimethyl weighting comparison",
+  "defaults": {
+    "trainable": "all",
+    "epochs": 40,
+    "warmup_epochs": 10,
+    "batch_size": 1024,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "seed": 2024
+  },
+  "experiments": [
+    {
+      "name": "01_mae_unweighted",
+      "description": "Current full-model MAE reference",
+      "loss": "mae"
+    },
+    {
+      "name": "02_huber_002_unweighted",
+      "description": "Huber loss with a narrow quadratic region",
+      "loss": "huber",
+      "huber_delta": 0.02
+    },
+    {
+      "name": "03_huber_005_unweighted",
+      "description": "Huber loss with a wider quadratic region",
+      "loss": "huber",
+      "huber_delta": 0.05
+    },
+    {
+      "name": "04_huber_003_unweighted",
+      "description": "Direct unweighted control for the weighted Huber run",
+      "loss": "huber",
+      "huber_delta": 0.03
+    },
+    {
+      "name": "05_huber_003_heavy_weighted",
+      "description": "Huber delta 0.03 with moderate emphasis on heavy dimethyl",
+      "loss": "huber",
+      "huber_delta": 0.03,
+      "heavy_nterm_weight": 2.0,
+      "heavy_lysine_weight": 1.25,
+      "heavy_both_weight": 3.0
+    }
+  ]
+}

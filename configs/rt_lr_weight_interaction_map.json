@@ -1,0 +1,8 @@
+{
+  "lr11_control": {"loss":"mae","learning-rate":0.00011,"batch-size":512,"epochs":60,"warmup-epochs":10,"heavy-nterm-weight":1.0,"heavy-lysine-weight":1.0,"heavy-both-weight":1.0,"trainable":"all","weight-decay":0.0},
+  "lr20_control": {"loss":"mae","learning-rate":0.00020,"batch-size":512,"epochs":60,"warmup-epochs":10,"heavy-nterm-weight":1.0,"heavy-lysine-weight":1.0,"heavy-both-weight":1.0,"trainable":"all","weight-decay":0.0},
+  "lr28_control": {"loss":"mae","learning-rate":0.00028,"batch-size":512,"epochs":60,"warmup-epochs":10,"heavy-nterm-weight":1.0,"heavy-lysine-weight":1.0,"heavy-both-weight":1.0,"trainable":"all","weight-decay":0.0},
+  "lr11_heavy": {"loss":"mae","learning-rate":0.00011,"batch-size":512,"epochs":60,"warmup-epochs":10,"heavy-nterm-weight":6.0,"heavy-lysine-weight":2.0,"heavy-both-weight":1.0,"trainable":"all","weight-decay":0.0},
+  "lr20_heavy": {"loss":"mae","learning-rate":0.00020,"batch-size":512,"epochs":60,"warmup-epochs":10,"heavy-nterm-weight":6.0,"heavy-lysine-weight":2.0,"heavy-both-weight":1.0,"trainable":"all","weight-decay":0.0},
+  "lr28_heavy": {"loss":"mae","learning-rate":0.00028,"batch-size":512,"epochs":60,"warmup-epochs":10,"heavy-nterm-weight":6.0,"heavy-lysine-weight":2.0,"heavy-both-weight":1.0,"trainable":"all","weight-decay":0.0}
+}
